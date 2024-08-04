@@ -1,0 +1,22 @@
+{
+  "studentList": [
+    {
+      "academicYear": "2024-2025",
+      "id": "12",
+      "studentName": "Fomunab",
+      "gender": "M",
+      "formName": "Form 1C",
+      "classNumber": "",
+      "subjects": ["Biology"]
+    },
+    {
+      "academicYear": "2024-2025",
+      "id": "13",
+      "studentName": "Favour Atam",
+      "gender": "F",
+      "formName": "Form 1C",
+      "classNumber": "",
+      "subjects": ["Biology"]
+    }
+  ]
+}

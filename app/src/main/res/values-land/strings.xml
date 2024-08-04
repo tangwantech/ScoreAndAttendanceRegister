@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="select_academic_year">Select academic year</string>
+    <string name="select_class">Select class</string>
+    <string name="gender">Gender: %1$s</string>
+    <string name="student_id">Student ID: %1$s</string>
+    <string name="enter_student_name">Enter student name</string>
+    <string name="select_gender">Select gender</string>
+    <string name="enter_student_id">Enter student ID</string>
+    <string name="all">All</string>
+    <string name="delete">Delete</string>
+</resources>

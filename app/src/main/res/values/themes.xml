@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ScoreAndAttendanceRegister" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorAccent">@color/colorAcent</item>
+        <item name="android:statusBarColor" >@color/colorPrimaryVariant</item>
+        <item name="android:textViewStyle">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+    </style>
+
+
+
+</resources>

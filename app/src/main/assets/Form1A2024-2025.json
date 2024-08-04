@@ -1,0 +1,22 @@
+{
+  "studentList": [
+    {
+      "academicYear": "2024-2025",
+      "id": "1111",
+      "studentName": "Tangwan Elice",
+      "gender": "M",
+      "formName": "Form 1A",
+      "subjects": ["Human Biology"],
+      "classNumber": ""
+    },
+    {
+      "academicYear": "2024-2025",
+      "id": "1112",
+      "studentName": "Justine-Favour Atam",
+      "gender": "F",
+      "formName": "Form 1A",
+      "subjects": ["Biology"],
+      "classNumber": ""
+    }
+  ]
+}

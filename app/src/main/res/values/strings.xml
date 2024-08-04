@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Score and attendance register</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="students_database">Students database</string>
+    <string name="score_register">Score register</string>
+    <string name="attendance_register">Attendance register</string>
+
+    <string name="select_academic_year">Select academic year</string>
+    <string name="select_class">Select class</string>
+    <string name="gender">Gender: %1$s</string>
+    <string name="student_id">Student ID: %1$s</string>
+    <string name="enter_student_name">Enter student name</string>
+    <string name="select_gender">Select gender</string>
+    <string name="enter_student_id">Enter student ID</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all">All</string>
+    <string name="delete">Delete</string>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="4dp">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_academic_year"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteAcademicYear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_class"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp">
+        <Button
+            android:id="@+id/btnLoadFromDatabase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load from Database"
+            android:layout_alignParentStart="true"/>
+        <Button
+            android:id="@+id/btnLoadFromFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Load from file"
+            android:layout_toEndOf="@id/btnLoadFromDatabase"
+            android:layout_marginStart="4dp"/>
+    </RelativeLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

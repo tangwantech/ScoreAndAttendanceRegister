@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.tangwantech.scoreandattendanceregister.StudentsInAcademicYearAndFormActivity">
+    <item
+        android:id="@+id/studentsInAcademicYearAndFormActivity_settings"
+        android:orderInCategory="100"
+        android:title="Clear database"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,22 @@
+{
+  "studentList": [
+    {
+      "academicYear": "2024-2025",
+      "id": "12",
+      "studentName": "Tangwan",
+      "gender": "M",
+      "formName": "Form 1B",
+      "classNumber": "",
+      "subjects": ["Biology"]
+    },
+    {
+      "academicYear": "2024-2025",
+      "id": "13",
+      "studentName": "Ines",
+      "gender": "F",
+      "formName": "Form 1B",
+      "classNumber": "",
+      "subjects": ["Biology"]
+    }
+  ]
+}
