@@ -1,13 +1,7 @@
 <resources>
     <string name="app_name">Score and attendance register</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="students_database">Students database</string>
+    <string name="students_database">Students in database</string>
     <string name="score_register">Score register</string>
     <string name="attendance_register">Attendance register</string>
 
@@ -20,6 +14,23 @@
     <string name="enter_student_id">Enter student ID</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="all">All</string>
+    <string name="all">%1$d selected</string>
     <string name="delete">Delete</string>
+    <string name="load_students_from_database">Load students from Database</string>
+    <string name="load_students_from_file">Load students from file</string>
+    <string name="no_data_to_display">No data to display</string>
+    <string name="new_student">New student</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_academic_year_and_form">Please select academic year and form</string>
+    <string name="select_sequence">Select sequence</string>
+    <string name="select_subject">Select subject</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="enter_score">Enter score</string>
+    <string name="score">Score: %1$s</string>
+    <string name="student_name">%1$s. %2$s</string>
+    <string name="male_statistics">Male Statistics</string>
+    <string name="female_statistics">Female statistics</string>
+    <string name="overall_statistics">Overall statistics</string>
 </resources>

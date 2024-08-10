@@ -6,7 +6,7 @@
       "studentName": "Fomunab",
       "gender": "M",
       "formName": "Form 1C",
-      "classNumber": "",
+      "classNumber": "1",
       "subjects": ["Biology"]
     },
     {
@@ -15,7 +15,7 @@
       "studentName": "Favour Atam",
       "gender": "F",
       "formName": "Form 1C",
-      "classNumber": "",
+      "classNumber": "2",
       "subjects": ["Biology"]
     }
   ]

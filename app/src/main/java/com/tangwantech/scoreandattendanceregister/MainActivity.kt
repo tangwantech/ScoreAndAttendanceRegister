@@ -1,16 +1,17 @@
 package com.tangwantech.scoreandattendanceregister
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import com.tangwantech.scoreandattendanceregister.constants.Constants
 import com.tangwantech.scoreandattendanceregister.databinding.ActivityMainBinding
+import com.tangwantech.scoreandattendanceregister.fragments.AutocompleteFormDialog
 import com.tangwantech.scoreandattendanceregister.viewmodels.MainActivityViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AutocompleteFormDialog.OnDialogPositiveButtonClickListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainActivityViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,13 +19,35 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupListeners()
-
-
     }
+
     private fun setupListeners(){
         binding.btnStudentDbManager.setOnClickListener {
-            println("Navigating to students in database activity")
-            startActivity(StudentsInAcademicYearAndFormActivity.getIntent(this))
+            startActivity(StudentsInDatabaseActivity.getIntent(this))
         }
+
+        binding.btnScoreRegister.setOnClickListener {
+            showAcademicYearClassSequenceSubjectDialog()
+        }
+
+        binding.btnAttendanceRegister.setOnClickListener {
+
+        }
+
+
     }
+
+    private fun showAcademicYearClassSequenceSubjectDialog(){
+        AutocompleteFormDialog().show(supportFragmentManager, "")
+    }
+
+    override fun onDialogPositiveButtonClicked(bundle: Bundle) {
+        startActivity(ScoreRegisterActivity.getIntent(this, bundle))
+    }
+
+    private fun gotoScoreRegisterActivity(){
+
+    }
+
+
 }

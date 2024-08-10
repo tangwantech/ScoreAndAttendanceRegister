@@ -70,5 +70,16 @@ class Constants {
 
         val PERIOD_COUNTS = arrayOf<Int>(1, 2)
         val GENDERS = arrayOf<String>("M", "F")
+
+        const val ACADEMIC_YEAR_INDEX = "index"
+        const val ACADEMIC_YEAR = "year"
+        const val FORM = "form"
+        const val SEQUENCE = "sequence"
+        const val SUBJECT = "subject"
+        const val SELECT_ITEM_INDEX = "selected item index"
+
+        const val MAX_SCORE = 20.0
+        const val MIN_SCORE = 0.0
+        const val PASS_MIN = 10.0
     }
 }

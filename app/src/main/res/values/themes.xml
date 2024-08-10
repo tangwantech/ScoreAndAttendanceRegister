@@ -9,6 +9,19 @@
         <item name="android:textViewStyle">@style/TextAppearance.MaterialComponents.Subtitle1</item>
     </style>
 
+    <style name="Theme.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorAccent">@color/colorAcent</item>
+        <item name="android:statusBarColor" >@color/colorPrimaryVariant</item>
+        <item name="android:textViewStyle">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+    </style>
+
+<!--    <style name="AutoCompleteLoStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">-->
+<!--        <item name=""-->
+<!--    </style>-->
+
 
 
 </resources>

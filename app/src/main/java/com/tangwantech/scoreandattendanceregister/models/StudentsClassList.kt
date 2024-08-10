@@ -7,6 +7,7 @@ data class StudentInfo(
     val studentName: String,
     val gender: String,
     val formName: String,
-    val subjects: List<String>)
+    val subjects: List<String>,
+    var classNumber: String = "")
 
 data class StudentsClassList(val studentList: List<StudentInfo>)

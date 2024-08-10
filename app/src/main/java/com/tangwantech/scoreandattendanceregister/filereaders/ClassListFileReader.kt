@@ -4,7 +4,6 @@ import android.content.Context
 import com.google.gson.Gson
 import com.tangwantech.scoreandattendanceregister.listbuilders.StudentsListBuilder
 import com.tangwantech.scoreandattendanceregister.models.Student
-import com.tangwantech.scoreandattendanceregister.models.StudentInfo
 import com.tangwantech.scoreandattendanceregister.models.StudentsClassList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +12,7 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.nio.charset.Charset
 
-class AssertReader {
+class ClassListFileReader {
     companion object{
         private fun getJsonFromAssets(context: Context, fileName: String): String? {
             var json: String? = null
@@ -42,7 +41,7 @@ class AssertReader {
                 if (jsonString != null){
                     val tempList = Gson().fromJson(jsonString, StudentsClassList::class.java).studentList
                     withContext(Dispatchers.Main){
-                        val students = StudentsListBuilder.build(tempList)
+                        val students = StudentsListBuilder.build(tempList).sortedBy { it.studentName }
                         onResult.result(students)}
                 }else{
                     withContext(Dispatchers.Main) {

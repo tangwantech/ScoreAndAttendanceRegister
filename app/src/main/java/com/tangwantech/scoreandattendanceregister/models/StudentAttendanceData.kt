@@ -1,6 +1,6 @@
 package com.tangwantech.scoreandattendanceregister.models
 
-data class StudentAttendanceSheet(
+data class StudentAttendanceData(
     val studentId: String,
     val studentName: String,
     val studentGender: String,

@@ -13,12 +13,18 @@
         android:theme="@style/Theme.ScoreAndAttendanceRegister"
         tools:targetApi="31">
         <activity
-            android:name=".StudentsInAcademicYearAndFormActivity"
+            android:name=".ScoreRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeleteStudentsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".StudentsInDatabaseActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

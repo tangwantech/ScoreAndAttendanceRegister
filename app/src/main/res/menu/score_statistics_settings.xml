@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/maleStatistics"
+        android:title="@string/male_statistics"/>
+    <item
+        android:id="@+id/femaleStatistics"
+        android:title="@string/female_statistics"/>
+    <item
+        android:id="@+id/overallStatistics"
+        android:title="@string/overall_statistics"/>
+</menu>

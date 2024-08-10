@@ -2,61 +2,60 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="4dp">
+    android:padding="16dp"
+    android:orientation="vertical">
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/select_academic_year"
         android:layout_marginBottom="4dp"
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
         <AutoCompleteTextView
             android:id="@+id/autoCompleteAcademicYear"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="none"/>
+            android:editable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/select_class"
-
+        android:layout_marginBottom="4dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
         <AutoCompleteTextView
             android:id="@+id/autoCompleteForm"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="none"/>
+            android:editable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/btnLoadFromDatabase"
+        android:hint="@string/select_sequence"
+        android:layout_marginBottom="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteSequence"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="72dp"
-            android:text="@string/load_students_from_database"
-            android:visibility="gone"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-        <Button
-            android:id="@+id/btnLoadFromFile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="72dp"
-            android:text="@string/load_students_from_file"
-            android:enabled="false"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
-    <com.google.android.material.divider.MaterialDivider
+            android:layout_height="match_parent"
+            android:editable="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"/>
+        android:hint="@string/select_subject"
+        android:layout_marginBottom="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteSubject"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:editable="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

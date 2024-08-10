@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
-    tools:context=".fragments.StudentsInAcademicYearAndFormDeleteFragment">
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".DeleteStudentsActivity">
 
     <RelativeLayout
         android:id="@+id/allAndDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingStart="8dp"
         android:paddingBottom="4dp">
         <CheckBox
             android:id="@+id/checkboxAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/all"
+
             android:layout_alignParentLeft="true"/>
         <Button
             android:id="@+id/btnDelete"

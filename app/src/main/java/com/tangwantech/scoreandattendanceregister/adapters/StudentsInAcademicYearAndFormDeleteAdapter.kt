@@ -14,12 +14,13 @@ class StudentsInAcademicYearAndFormDeleteAdapter(private val context: Context, p
 
     inner class ViewHolder(val binding: DeleteItemBinding): RecyclerView.ViewHolder(binding.root){
         init {
+
+            binding.main.setOnClickListener {
+                binding.checkBoxItem.isChecked = !binding.checkBoxItem.isChecked
+            }
             binding.checkBoxItem.setOnCheckedChangeListener { _, state ->
-                if (state){
-                    onItemCheckChangeListener.onItemChecked(adapterPosition, state)
-                }else{
-                    onItemCheckChangeListener.onItemUnChecked(adapterPosition, state)
-                }
+                onItemCheckChangeListener.onItemCheckedStateChanged(adapterPosition, state)
+
             }
         }
     }
@@ -44,8 +45,7 @@ class StudentsInAcademicYearAndFormDeleteAdapter(private val context: Context, p
     }
 
     interface OnItemCheckChangeListener{
-        fun onItemChecked(itemPosition: Int, state: Boolean)
-        fun onItemUnChecked(itemPosition: Int, state: Boolean)
+        fun onItemCheckedStateChanged(itemPosition: Int, state: Boolean)
     }
 
 }

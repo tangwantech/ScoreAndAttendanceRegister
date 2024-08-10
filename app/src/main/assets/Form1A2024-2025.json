@@ -7,7 +7,7 @@
       "gender": "M",
       "formName": "Form 1A",
       "subjects": ["Human Biology"],
-      "classNumber": ""
+      "classNumber": "2"
     },
     {
       "academicYear": "2024-2025",
@@ -16,7 +16,7 @@
       "gender": "F",
       "formName": "Form 1A",
       "subjects": ["Biology"],
-      "classNumber": ""
+      "classNumber": "1"
     }
   ]
 }
