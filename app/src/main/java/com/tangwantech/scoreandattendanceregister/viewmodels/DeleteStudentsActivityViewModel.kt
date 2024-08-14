@@ -40,8 +40,7 @@ class DeleteStudentsActivityViewModel: ViewModel() {
     }
 
     private fun updateNumberOfItemsSelected(){
-//        counts the number of items checked
-//        called after an item check state is changed
+
         _numberOfItemsSelected.value = deleteStudentsList.count { it.isChecked }
 
     }
@@ -51,9 +50,9 @@ class DeleteStudentsActivityViewModel: ViewModel() {
     }
 
     fun updateDeleteItemCheckState(itemPosition: Int, state: Boolean){
-//        println(deleteStudentsList)
+
         deleteStudentsList[itemPosition].isChecked = state
-        updatePreSelectedItemIndex(itemPosition)
+
         updateNumberOfItemsSelected()
         updateAllItemsChecked()
     }
@@ -111,7 +110,7 @@ class DeleteStudentsActivityViewModel: ViewModel() {
     fun removeStudents() {
         studentsDataManager.removeStudents(deleteStudentsList, object : StudentsDataManager.OnStudentsRemoveListener{
             override fun onStudentsRemoved(count: Int) {
-                println("Number of items deleted: $count")
+//                println("Number of items deleted: $count")
             }
 
             override fun onDeleteSuccessful() {
@@ -125,7 +124,6 @@ class DeleteStudentsActivityViewModel: ViewModel() {
                 }
                 updateSizeOfStudentsToDelete()
                 _deleteSuccessful.value = true
-//                println(deleteStudentsList)
 
             }
 

@@ -28,6 +28,7 @@ class AutocompleteFormDialog: DialogFragment() {
         }
     }
 
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         setupViewBinding()
         setupViewModel()
@@ -78,23 +79,34 @@ class AutocompleteFormDialog: DialogFragment() {
     }
 
     private fun setupAutocompleteViews(){
+
+        viewBinding.autoCompleteAcademicYear.invalidate()
         viewBinding.autoCompleteAcademicYear.setText(viewModel.selectedAcademicYear)
         val academicYearAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, Constants.ACADEMIC_YEARS)
         viewBinding.autoCompleteAcademicYear.setAdapter(academicYearAdapter)
 
 
+        viewBinding.autoCompleteForm.invalidate()
         viewBinding.autoCompleteForm.setText(viewModel.selectedClass)
         val formAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, Constants.FORMS)
         viewBinding.autoCompleteForm.setAdapter(formAdapter)
+        viewModel.selectedClass?.let {
+            viewBinding.autoCompleteForm.listSelection = Constants.FORMS.indexOf(it)
+        }
 
 
+
+        viewBinding.autoCompleteAcademicYear.invalidate()
         viewBinding.autoCompleteSequence.setText(viewModel.selectedSequence)
         val sequenceAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, Constants.SEQUENCE_NAMES)
         viewBinding.autoCompleteSequence.setAdapter(sequenceAdapter)
 
-        viewBinding.autoCompleteSubject.setText(viewModel.selectedSubject)
-        val subjectAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, Constants.SUBJECTS)
-        viewBinding.autoCompleteSubject.setAdapter(subjectAdapter)
+
+
+        viewModel.selectedClass?.let{
+            setupAutocompleteSubject(it)
+        }
+
 
     }
     private fun setupAutocompleteListeners(){
@@ -108,12 +120,13 @@ class AutocompleteFormDialog: DialogFragment() {
             }
         }
 
+
         viewBinding.autoCompleteForm.doOnTextChanged { text, start, before, count ->
-            if((text.toString().isNotEmpty() && viewBinding.autoCompleteAcademicYear.text.toString().isNotEmpty()
-                        && viewBinding.autoCompleteSequence.text.toString().isNotEmpty()
-                        && viewBinding.autoCompleteSubject.text.toString().isNotEmpty())){
-                positiveBtn.isEnabled = true
+            if(text.toString().isNotEmpty()){
+                setupAutocompleteSubject(text.toString())
+
             }else{
+
                 positiveBtn.isEnabled = false
             }
 
@@ -138,6 +151,23 @@ class AutocompleteFormDialog: DialogFragment() {
                 positiveBtn.isEnabled = false
             }
         }
+
+    }
+
+    private fun setupAutocompleteSubject(formName: String){
+//        viewBinding.autoCompleteSubject.isEnabled = true
+        viewBinding.autoCompleteSubject.invalidate()
+        if (viewModel.selectedSubject != null && viewModel.selectedSubject!! in Constants.FORM_SUBJECTS[formName]!!.toList()){
+            viewBinding.autoCompleteSubject.setText(viewModel.selectedSubject)
+            val subjectAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, Constants.FORM_SUBJECTS[formName]!!.toList())
+            viewBinding.autoCompleteSubject.setAdapter(subjectAdapter)
+        }else{
+            viewBinding.autoCompleteSubject.text = null
+            val subjectAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_dropdown_item, Constants.FORM_SUBJECTS[formName]!!.toList())
+            viewBinding.autoCompleteSubject.setAdapter(subjectAdapter)
+            println("Nullllll")
+        }
+
 
     }
     interface OnDialogPositiveButtonClickListener{

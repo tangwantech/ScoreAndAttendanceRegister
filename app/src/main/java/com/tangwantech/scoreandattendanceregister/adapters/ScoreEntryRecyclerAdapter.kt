@@ -35,7 +35,8 @@ class ScoreEntryRecyclerAdapter(private val context: Context, private val onItem
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvStudentName.text = "${studentsScoreList[position].classNumber} ${studentsScoreList[position].studentName}"
+        holder.binding.tvStudentName.text = context.getString(R.string.class_number_and_name, studentsScoreList[position].classNumber, studentsScoreList[position].studentName )
+//        holder.binding.tvStudentName.text = "${studentsScoreList[position].classNumber} ${studentsScoreList[position].studentName}"
         holder.binding.tvStudentId.text = studentsScoreList[position].studentId
         holder.binding.tvStudentGender.text = studentsScoreList[position].studentGender
         holder.binding.tvScore.text = context.getString(R.string.score, studentsScoreList[position].score.toString())

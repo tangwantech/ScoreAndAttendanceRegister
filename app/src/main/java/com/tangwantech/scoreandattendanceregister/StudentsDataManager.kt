@@ -3,6 +3,7 @@ package com.tangwantech.scoreandattendanceregister
 import android.content.Context
 import com.tangwantech.scoreandattendanceregister.filereaders.ClassListFileReader
 import com.tangwantech.scoreandattendanceregister.listbuilders.StudentsListBuilder
+import com.tangwantech.scoreandattendanceregister.models.Attendance
 import com.tangwantech.scoreandattendanceregister.models.DeleteStudentData
 import com.tangwantech.scoreandattendanceregister.models.Student
 import com.tangwantech.scoreandattendanceregister.models.StudentInfo
@@ -54,8 +55,10 @@ class StudentsDataManager(private val context: Context) {
     }
 
     private fun setStudents(students: List<Student>){
+        val temp = students.sortedBy { it.studentName }
         this.students.clear()
-        this.students.addAll(students)
+
+        this.students.addAll(temp)
     }
 
     fun getStudents(): ArrayList<Student>{
@@ -124,15 +127,13 @@ class StudentsDataManager(private val context: Context) {
     }
 
     fun getStudentScoreAt(studentIndex: Int, academicYearIndex: Int,  subjectIndex: Int, sequenceIndex: Int): Double{
+
         val score = students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].score
         return score
     }
 
     fun updateStudentScoreAt(studentIndex: Int, academicYearIndex: Int, subjectIndex: Int, sequenceIndex: Int, score: Double){
-//        println("$studentIndex, $academicYearIndex, $subjectIndex, $sequenceIndex")
-//        println(students)
-//
-//        println(students[studentIndex])
+
         if(students.isNotEmpty()){
             students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].score = score
             val temp = arrayOf<Student>(students[studentIndex]).toList()
@@ -141,8 +142,57 @@ class StudentsDataManager(private val context: Context) {
 
     }
 
-    fun updateStudentsInRoom(){
-        roomDataManager.updateStudents(students)
+//    fun updateStudentsInRoom(){
+//        roomDataManager.updateStudents(students)
+//    }
+
+    fun getStudentAttendances(studentIndex: Int, academicYearIndex: Int, subjectIndex: Int, sequenceIndex: Int):ArrayList<Attendance>{
+        return students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].attendances
+    }
+
+    fun updateStudentAttendancesForCurrentSequence(studentIndex: Int, academicYearIndex: Int, subjectIndex: Int, sequenceIndex: Int, attendance: Attendance){
+        if(students.isNotEmpty()){
+            val temp = students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].attendances.filter { it.date == attendance.date }
+            if (temp.isNotEmpty()){
+                students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].attendances.removeAll(temp.toSet())
+            }
+            students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].attendances.add(attendance)
+
+            val temp2 = arrayOf<Student>(students[studentIndex]).toList()
+
+            updateTotalNumberOfAbsencesForSequence(studentIndex, academicYearIndex, sequenceIndex, sequenceIndex)
+
+            roomDataManager.updateStudents(temp2)
+        }
+
+    }
+    private fun updateTotalNumberOfAbsencesForSequence(studentIndex: Int, academicYearIndex: Int, subjectIndex: Int, sequenceIndex: Int){
+        val totalAbsences = students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].attendances.sumOf { attendance -> attendance.totalAbsences }
+        students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].totalAbsences = totalAbsences
+
+    }
+
+    fun getStudentsAttendanceForSequenceOnDate(
+        index: Int,
+        academicYearIndex: Int,
+        subjectIndex: Int,
+        sequenceIndex: Int,
+        currentDate: String
+    ): Attendance? {
+         val temp = students[index].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].attendances.filter { it.date == currentDate }
+        if (temp.isNotEmpty()){
+            return temp[0]
+        }else{
+            return null
+        }
+    }
+
+    fun getTotalAbsencesForStudentInSequence(studentIndex: Int, academicYearIndex: Int, subjectIndex: Int, sequenceIndex: Int): Int {
+        return students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].totalAbsences
+    }
+
+    fun getStudentAttendancesAtIndex(studentIndex: Int, academicYearIndex: Int, subjectIndex: Int, sequenceIndex: Int): List<Attendance> {
+        return students[studentIndex].academicYears[academicYearIndex].subjects[subjectIndex].termSequences[sequenceIndex].attendances
     }
 
 

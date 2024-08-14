@@ -89,6 +89,7 @@ class ScoreRegisterActivityViewModel: ViewModel() {
             }
 
             override fun onStudentsUnAvailable() {
+
                 _studentsScoreListAvailable.value = false
             }
 
@@ -97,6 +98,7 @@ class ScoreRegisterActivityViewModel: ViewModel() {
 
     private fun updateStudentsScoreList(){
         val temp = ArrayList<StudentScoreData>()
+//        println(studentsDataManager.getStudents())
         studentsDataManager.getStudents().forEachIndexed { index, student ->
             val name = student.studentName
             val id = student.studentId

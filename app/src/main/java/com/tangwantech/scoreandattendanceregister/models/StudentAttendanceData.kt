@@ -1,13 +1,11 @@
 package com.tangwantech.scoreandattendanceregister.models
 
 data class StudentAttendanceData(
+    val classNumber: String,
     val studentId: String,
     val studentName: String,
-    val studentGender: String,
-    val academicYear:String,
-    val formName: String,
-    val classNumber: String,
-    val subjectName: String,
-    val sequenceName: String,
-    val attendance: Attendance? = null
+    var attendanceDate: String,
+    var absentCount: Int = 0,
+    var isAbsent: Boolean = true,
+    var totalAbsencesForSequence: Int = 0
 )

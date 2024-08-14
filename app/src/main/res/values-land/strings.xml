@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="students_database">Students in database</string>
+    <string name="class_lists">Class List</string>
     <string name="score_register">Score register</string>
     <string name="attendance_register">Attendance register</string>
     <string name="select_academic_year">Select academic year</string>
@@ -13,7 +13,7 @@
     <string name="all">%1$d selected</string>
     <string name="delete">Delete</string>
     <string name="load_students_from_database">Load students from Database</string>
-    <string name="load_students_from_file">Load students from file</string>
+    <string name="load_clas_list_from_file">Load class list from file</string>
     <string name="no_data_to_display">No data to display</string>
     <string name="new_student">New student</string>
     <string name="add">Add</string>
@@ -29,4 +29,22 @@
     <string name="male_statistics">Male Statistics</string>
     <string name="female_statistics">Female statistics</string>
     <string name="overall_statistics">Overall statistics</string>
+    <string name="number_passed">Number passed: %1$d</string>
+    <string name="percentage_passed">Percentage passed: %1$s</string>
+    <string name="ok">OK</string>
+    <string name="maleStatistics">%1$s statistics for males</string>
+    <string name="femaleStatistics">%1$s statistics for females</string>
+    <string name="overallStatistics">%1$s overall statistics</string>
+    <string name="class_number_and_name">%1$s. %2$s</string>
+    <string name="number_id_and_name">%1$s. %2$s %3$s</string>
+    <string name="absent">Absent</string>
+    <string name="present">Present</string>
+    <string name="roll_call">Roll call %1$s</string>
+    <string name="number_absent">Number absent: %1$d</string>
+    <string name="total_absences">Total absences: %1$d</string>
+    <string name="attendance_register_home_title">%1$s %2$s</string>
+    <string name="conduct_roll_call">Conduct roll call</string>
+    <string name="select_number_of_periods">Select number of periods</string>
+    <string name="attendance_date_record">%1$s. %2$s %3$s</string>
+    <string name="attendance_record">Attendance record</string>
 </resources>

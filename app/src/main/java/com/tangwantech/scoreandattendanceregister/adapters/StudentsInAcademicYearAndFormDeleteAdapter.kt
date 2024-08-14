@@ -17,6 +17,7 @@ class StudentsInAcademicYearAndFormDeleteAdapter(private val context: Context, p
 
             binding.main.setOnClickListener {
                 binding.checkBoxItem.isChecked = !binding.checkBoxItem.isChecked
+
             }
             binding.checkBoxItem.setOnCheckedChangeListener { _, state ->
                 onItemCheckChangeListener.onItemCheckedStateChanged(adapterPosition, state)

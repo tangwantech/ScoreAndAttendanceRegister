@@ -5,10 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="8dp"
     android:paddingBottom="8dp"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
+
     tools:context=".DeleteStudentsActivity">
 
     <RelativeLayout
@@ -17,20 +15,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingStart="8dp"
-        android:paddingBottom="4dp">
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:paddingTop="8dp">
         <CheckBox
             android:id="@+id/checkboxAll"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/all"
-
             android:layout_alignParentLeft="true"/>
-        <Button
+        <ImageButton
             android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/delete"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_delete"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
     </RelativeLayout>
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/divider"

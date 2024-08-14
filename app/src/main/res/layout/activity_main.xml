@@ -21,7 +21,7 @@
             android:id="@+id/btnStudentDbManager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/students_database"
+            android:text="@string/class_lists"
             android:minHeight="72dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
         <Button

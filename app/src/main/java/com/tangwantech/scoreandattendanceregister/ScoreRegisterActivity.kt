@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.tangwantech.scoreandattendanceregister.adapters.ScoreEntryRecyclerAdapter
 import com.tangwantech.scoreandattendanceregister.constants.Constants
 import com.tangwantech.scoreandattendanceregister.databinding.ActivityScoreRegisterBinding
+import com.tangwantech.scoreandattendanceregister.fragments.ScoreStatisticsDialog
 import com.tangwantech.scoreandattendanceregister.viewmodels.ScoreRegisterActivityViewModel
 
 class ScoreRegisterActivity : AppCompatActivity(), ScoreEntryRecyclerAdapter.OnItemClickListener {
@@ -106,10 +108,13 @@ class ScoreRegisterActivity : AppCompatActivity(), ScoreEntryRecyclerAdapter.OnI
     private fun setupObservers(){
         viewModel.studentsScoreListAvailable.observe(this){
             if(it){
+                showMainDisplay()
                 viewModel.setFirstAndLastIndices()
                 updateScoreEntryFields(viewModel.getFirstIndex()!!)
                 updatePreviousAndNextButtonStates()
 
+            }else{
+                hideMainDisplay()
             }
 
         }
@@ -118,6 +123,7 @@ class ScoreRegisterActivity : AppCompatActivity(), ScoreEntryRecyclerAdapter.OnI
             updateScoreEntryFields(it)
             updatePreviousAndNextButtonStates()
         }
+
     }
 
     private fun updateScoreEntryFields(currentStudentIndex: Int){
@@ -139,22 +145,34 @@ class ScoreRegisterActivity : AppCompatActivity(), ScoreEntryRecyclerAdapter.OnI
 
         binding.recyclerView.adapter = rvAdapter
 
-
     }
 
     private fun showMaleStatistics(){
-        viewModel.getMaleStatics()
+        ScoreStatisticsDialog(viewModel.getMaleStatics(), getString(R.string.maleStatistics, viewModel.getSequence())).show(supportFragmentManager, null)
     }
 
     private fun showFemaleStatistics(){
-        viewModel.getFemaleStatistics()
+
+        ScoreStatisticsDialog(viewModel.getFemaleStatistics(), getString(R.string.femaleStatistics, viewModel.getSequence())).show(supportFragmentManager, null)
     }
 
     private fun showOverallStatistics(){
-        viewModel.getGlobalStatistics()
+        ScoreStatisticsDialog(viewModel.getGlobalStatistics(), getString(R.string.overallStatistics, viewModel.getSequence())).show(supportFragmentManager, null)
+
+    }
+
+    private fun hideMainDisplay(){
+        binding.loMainDisplay.visibility = View.GONE
+        binding.tvNoData.visibility = View.VISIBLE
+    }
+
+    private fun showMainDisplay(){
+        binding.loMainDisplay.visibility = View.VISIBLE
+        binding.tvNoData.visibility = View.GONE
     }
 
     companion object{
+        const val ACTIVITY_NAME = "ScoreRegisterActivity"
         fun getIntent(context: Context, params: Bundle): Intent{
             val intent = Intent(context, ScoreRegisterActivity::class.java)
             intent.putExtras(params)

@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity(), AutocompleteFormDialog.OnDialogPositiv
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainActivityViewModel
-
+    private var activityDestination: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,11 +27,13 @@ class MainActivity : AppCompatActivity(), AutocompleteFormDialog.OnDialogPositiv
         }
 
         binding.btnScoreRegister.setOnClickListener {
+            activityDestination = ScoreRegisterActivity.ACTIVITY_NAME
             showAcademicYearClassSequenceSubjectDialog()
         }
 
         binding.btnAttendanceRegister.setOnClickListener {
-
+            activityDestination = AttendanceRegisterActivity.ACTIVITY_NAME
+            showAcademicYearClassSequenceSubjectDialog()
         }
 
 
@@ -42,7 +44,17 @@ class MainActivity : AppCompatActivity(), AutocompleteFormDialog.OnDialogPositiv
     }
 
     override fun onDialogPositiveButtonClicked(bundle: Bundle) {
-        startActivity(ScoreRegisterActivity.getIntent(this, bundle))
+        when (activityDestination){
+            ScoreRegisterActivity.ACTIVITY_NAME -> {
+               startActivity(ScoreRegisterActivity.getIntent(this, bundle))
+            }
+           AttendanceRegisterActivity.ACTIVITY_NAME ->{
+               startActivity(AttendanceRegisterActivity.getIntent(this, bundle))
+           }
+
+
+        }
+
     }
 
     private fun gotoScoreRegisterActivity(){

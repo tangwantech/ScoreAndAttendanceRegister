@@ -35,7 +35,7 @@ class StudentsInDatabaseActivity : AppCompatActivity(),
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        title = getString(R.string.students_database)
+        title = getString(R.string.class_lists)
         setupViewModel()
         setupRecyclerView()
         setupListeners()
@@ -94,7 +94,7 @@ class StudentsInDatabaseActivity : AppCompatActivity(),
 
         }
 
-        binding.fab.setOnClickListener {
+        binding.btnConductRollCall.setOnClickListener {
             val academicYear = binding.loYearFormSelection.autoCompleteAcademicYear.text.toString()
             val form = binding.loYearFormSelection.autoCompleteForm.text.toString()
             if (academicYear.isNotEmpty() && form.isNotEmpty()){
@@ -245,7 +245,7 @@ class StudentsInDatabaseActivity : AppCompatActivity(),
     }
 
     private fun changeAddButtonState(state: Boolean){
-        binding.fab.isEnabled = state
+        binding.btnConductRollCall.isEnabled = state
     }
 
     private fun gotoDeleteStudentActivity(itemIndex: Int){

@@ -7,8 +7,8 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 
 
-data class Attendance(val date: String, var totalAbsences: Int, var isPresent: Boolean)
-data class TermSequence(val sequenceName: String, var score: Double = 0.0, var totalAbsences: Int = 0, val attendances: ArrayList<Attendance> = ArrayList())
+data class Attendance(val date: String, var totalAbsences: Int = 0, var isAbsent: Boolean = false)
+data class TermSequence(val sequenceName: String, var score: Double = 0.0, var totalAbsences: Int = 0, var attendances: ArrayList<Attendance> = ArrayList())
 data class Subject(val subjectName  : String, var isRegistered: Boolean, val termSequences: List<TermSequence>)
 
 data class AcademicYear(val yearName: String, val formName: String,  val subjects: List<Subject>, var clasNumber: String = "")

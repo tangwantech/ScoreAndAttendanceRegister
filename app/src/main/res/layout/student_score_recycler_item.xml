@@ -12,7 +12,7 @@
         android:id="@+id/tvStudentName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1. Tangwan Elice"
+        android:text="@string/class_number_and_name"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"/>
 

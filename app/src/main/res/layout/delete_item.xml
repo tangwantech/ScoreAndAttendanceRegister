@@ -3,7 +3,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:foreground="?attr/selectableItemBackground">
     <CheckBox
         android:id="@+id/checkBoxItem"
         android:layout_width="wrap_content"
@@ -13,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="1234 Tangwan Elice"
-        android:layout_toRightOf="@id/checkBoxItem"
+        android:layout_toEndOf="@id/checkBoxItem"
         android:layout_alignBaseline="@id/checkBoxItem"
        />
 </RelativeLayout>
